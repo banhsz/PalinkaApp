@@ -4,12 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.database.Cursor;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     DBHelper adatbazis;
+    Button buttonAdatFelvetel,buttonKereses,buttonListazas;
     TextView textAdatok;
 
     @Override
@@ -18,16 +22,26 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         init();
-        adatbazis.adatRogzites("Pécsi pálinka","Körte","30");
-        adatLekerdezes();
+        adatbazis.adatRogzites("Gyulafirátót pálinka","Körte",70);
+
+        buttonListazas.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                adatLekerdezes();
+            }
+        });
+
 
     }
-
     public void init()
     {
         adatbazis = new DBHelper(MainActivity.this);
+        buttonAdatFelvetel = findViewById(R.id.buttonAdatFelvetel);
+        buttonKereses = findViewById(R.id.buttonKereses);
+        buttonListazas = findViewById(R.id.buttonListazas);
         textAdatok = findViewById(R.id.textAdatok);
-
+        textAdatok.setMovementMethod(new ScrollingMovementMethod());
     }
 
     private void adatLekerdezes()
@@ -49,9 +63,10 @@ public class MainActivity extends AppCompatActivity {
             stringBuffer.append("ID: "+adatok.getString(0)+"\n");
             stringBuffer.append("Főző: "+adatok.getString(1)+"\n");
             stringBuffer.append("Gyümölcs: "+adatok.getString(2)+"\n");
-            stringBuffer.append("Alkohol: "+adatok.getString(3)+"\n");
+            stringBuffer.append("Alkohol: "+adatok.getString(3)+"\n\n");
         }
         textAdatok.setText(stringBuffer.toString());
         Toast.makeText(this, "sikeres lekérdezés", Toast.LENGTH_SHORT).show();
     }
+
 }

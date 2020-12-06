@@ -22,6 +22,7 @@ public class DBHelper extends SQLiteOpenHelper
         super(context, DB_NAME, null, DB_VERSION);
     }
 
+
     @Override
     public void onCreate(SQLiteDatabase db)
     {
@@ -34,7 +35,6 @@ public class DBHelper extends SQLiteOpenHelper
                 ")";
         db.execSQL(sql);
     }
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
     {
@@ -47,14 +47,18 @@ public class DBHelper extends SQLiteOpenHelper
     //SELECT
     public Cursor adatLekerdezes()
     {
-        //String nev ="Jozsi";
+
         SQLiteDatabase db = this.getReadableDatabase();
+        //paraméteres stringmegszakítós
+        //String nev ="Jozsi";
         //return db.rawQuery("SELECT * FROM "+TANULO_TABLE+" WHERE nev = ?",new String[]{nev});
+
+        //fullos
         return db.query(PALINKA_TABLE,new String[]{COL_ID,COL_FOZO,COL_GYUMOLCS,COL_ALKOHOL},null,null,null,null,null,null);
     }
 
     //INSERT
-    public boolean adatRogzites(String fozo, String gyumolcs, String alkohol)
+    public boolean adatRogzites(String fozo, String gyumolcs, int alkohol)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
