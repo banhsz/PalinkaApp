@@ -2,6 +2,7 @@ package com.example.palinkaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
@@ -12,9 +13,9 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    DBHelper adatbazis;
-    Button buttonAdatFelvetel,buttonKereses,buttonListazas;
-    TextView textAdatok;
+    private DBHelper adatbazis;
+    private Button buttonAdatFelvetel,buttonKereses,buttonListazas;
+    private TextView textAdatok;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,13 +23,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         init();
-        adatbazis.adatRogzites("Gyulafirátót pálinka","Körte",70);
 
         buttonListazas.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v) {
                 adatLekerdezes();
+            }
+        });
+        buttonAdatFelvetel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent masikActivityre = new Intent(MainActivity.this, AdatFelvetelActivity.class);
+                startActivity(masikActivityre);
+                finish();
             }
         });
 

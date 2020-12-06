@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdatFelvetelActivity"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/editTextFozo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Főző"
+        android:textSize="25sp"/>
+
+    <EditText
+        android:id="@+id/editTextGyumolcs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Gyümölcs"
+        android:textSize="25sp"/>
+
+    <EditText
+        android:id="@+id/editTextAlkohol"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Alkohol"
+        android:textSize="25sp"
+        android:inputType="number"
+        android:maxLength="2"/>
+
+    <Button
+        android:id="@+id/buttonFelvetel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Felvétel"
+        android:textSize="25sp"
+        />
+
+    <Button
+        android:id="@+id/buttonVissza"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vissza"
+        android:textSize="25sp"
+        />
+</LinearLayout>
