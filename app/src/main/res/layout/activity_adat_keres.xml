@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdatKeresActivity"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/editTextFozo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Főző"
+        android:textSize="25sp"/>
+
+    <EditText
+        android:id="@+id/editTextGyumolcs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Gyümölcs"
+        android:textSize="25sp"/>
+
+    <Button
+        android:id="@+id/buttonKereses"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Keresés"
+        android:textSize="25sp"
+        />
+    <Button
+        android:id="@+id/buttonVissza"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vissza"
+        android:textSize="25sp"
+        />
+
+    <TextView
+        android:id="@+id/textAdatok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:scrollbars = "vertical"/>
+</LinearLayout>

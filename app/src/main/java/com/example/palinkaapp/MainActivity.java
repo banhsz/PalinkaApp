@@ -40,6 +40,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        buttonKereses.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent masikActivityre = new Intent(MainActivity.this, AdatKeresActivity.class);
+                startActivity(masikActivityre);
+                finish();
+            }
+        });
+
 
     }
     public void init()

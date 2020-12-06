@@ -68,4 +68,19 @@ public class DBHelper extends SQLiteOpenHelper
         long result = db.insert(PALINKA_TABLE, null, values);
         return result != -1;
     }
+
+    //KERESES
+    public Cursor adatKereses(String fozoIn,String gyumolcsIn)
+    {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        //paraméteres stringmegszakítós
+        //String nev ="Jozsi";
+        //return db.rawQuery("SELECT * FROM "+PALINKA_TABLE+" WHERE nev = ?",new String[]{fozoIn});
+
+        //fullos
+        String selection = "fozo = ? and gyumolcs = ?";
+        String[] selectionArgs = {fozoIn,gyumolcsIn};
+        return db.query(PALINKA_TABLE,new String[]{COL_ID,COL_FOZO,COL_GYUMOLCS,COL_ALKOHOL},selection,selectionArgs,null,null,null,null);
+    }
 }
