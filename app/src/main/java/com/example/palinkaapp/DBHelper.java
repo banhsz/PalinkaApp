@@ -22,7 +22,6 @@ public class DBHelper extends SQLiteOpenHelper
         super(context, DB_NAME, null, DB_VERSION);
     }
 
-
     @Override
     public void onCreate(SQLiteDatabase db)
     {
@@ -35,6 +34,7 @@ public class DBHelper extends SQLiteOpenHelper
                 ")";
         db.execSQL(sql);
     }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
     {
@@ -43,11 +43,9 @@ public class DBHelper extends SQLiteOpenHelper
         onCreate(db);
     }
 
-
     //SELECT
     public Cursor adatLekerdezes()
     {
-
         SQLiteDatabase db = this.getReadableDatabase();
         //paraméteres stringmegszakítós
         //String nev ="Jozsi";
@@ -72,7 +70,6 @@ public class DBHelper extends SQLiteOpenHelper
     //KERESES
     public Cursor adatKereses(String fozoIn,String gyumolcsIn)
     {
-
         SQLiteDatabase db = this.getReadableDatabase();
         //paraméteres stringmegszakítós
         //String nev ="Jozsi";

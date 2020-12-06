@@ -11,19 +11,20 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
-
+public class MainActivity extends AppCompatActivity
+{
     private DBHelper adatbazis;
     private Button buttonAdatFelvetel,buttonKereses,buttonListazas;
     private TextView textAdatok;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         init();
-
+        //OnclickListenerek
         buttonListazas.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -39,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
-
         buttonKereses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,9 +48,8 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-
     }
+
     public void init()
     {
         adatbazis = new DBHelper(MainActivity.this);
@@ -83,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
             stringBuffer.append("Alkohol: "+adatok.getString(3)+"\n\n");
         }
         textAdatok.setText(stringBuffer.toString());
-        Toast.makeText(this, "sikeres lekérdezés", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Sikeres lekérdezés", Toast.LENGTH_SHORT).show();
     }
 
 }

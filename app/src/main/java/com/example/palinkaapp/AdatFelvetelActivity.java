@@ -9,19 +9,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class AdatFelvetelActivity extends AppCompatActivity {
-
+public class AdatFelvetelActivity extends AppCompatActivity
+{
     private DBHelper adatbazis;
     private EditText editTextFozo, editTextGyumolcs, editTextAlkohol;
     private Button buttonFelvetel, buttonVissza;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adat_felvetel);
 
         init();
-
+        //OnClickListenerek
         buttonVissza.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,7 +39,6 @@ public class AdatFelvetelActivity extends AppCompatActivity {
         });
     }
 
-
     public void init()
     {
         adatbazis = new DBHelper(AdatFelvetelActivity.this);
@@ -49,7 +49,8 @@ public class AdatFelvetelActivity extends AppCompatActivity {
         buttonVissza = findViewById(R.id.buttonVissza);
     }
 
-    private void adatRogzites() {
+    private void adatRogzites()
+    {
         String fozo = editTextFozo.getText().toString().trim();
         String gyumolcs = editTextGyumolcs.getText().toString().trim();
         String alkohol = editTextAlkohol.getText().toString().trim();
@@ -78,11 +79,5 @@ public class AdatFelvetelActivity extends AppCompatActivity {
                 Toast.makeText(this, "Sikertelen adatrögzítés\nA főző-gyümölcs kombináció már létezik az adatbázisban", Toast.LENGTH_LONG).show();
             }
         }
-        /*
-        if (jegySzamertek < 0 || jegySzamertek > 5)
-        {
-            Toast.makeText(this, "Jegy 1 és 5 közötti érték lehet", Toast.LENGTH_SHORT).show();
-        }
-        */
     }
 }

@@ -12,20 +12,21 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class AdatKeresActivity extends AppCompatActivity {
-
+public class AdatKeresActivity extends AppCompatActivity
+{
     private DBHelper adatbazis;
     private EditText editTextFozo, editTextGyumolcs;
     private Button buttonKereses, buttonVissza;
     private TextView textAdatok;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adat_keres);
 
         init();
-
+        //OnClickListenerek
         buttonVissza.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,7 +35,6 @@ public class AdatKeresActivity extends AppCompatActivity {
                 finish();
             }
         });
-
         buttonKereses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,9 +59,12 @@ public class AdatKeresActivity extends AppCompatActivity {
         String fozo = editTextFozo.getText().toString().trim();
         String gyumolcs = editTextGyumolcs.getText().toString().trim();
         Cursor adatok = adatbazis.adatKereses(fozo, gyumolcs);
-        if (fozo.isEmpty()) {
+        if (fozo.isEmpty())
+        {
             Toast.makeText(this, "A pálinkafőző neve megadása kötelező", Toast.LENGTH_SHORT).show();
-        } else if (gyumolcs.isEmpty()) {
+        }
+        else if (gyumolcs.isEmpty())
+        {
             Toast.makeText(this, "Gyümölcs megadása kötelező", Toast.LENGTH_SHORT).show();
         }
         else
